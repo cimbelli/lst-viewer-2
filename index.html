@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Mappa interattiva di temperatura superficiale (LST)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  :root{
+    --ink:#1a1d21; --muted:#6b7280; --line:#e3e5e8; --panel:#fafafa;
+    --accent:#c0392b; --accent-soft:#f3d9d5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);}
+  #app{display:grid;grid-template-columns:220px 1fr 300px;grid-template-rows:auto 1fr;height:100vh;}
+  header{grid-column:1/4;padding:14px 24px;border-bottom:1px solid var(--line);}
+  header h1{font-size:19px;margin:0;font-weight:700;}
+  header .year-row{display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap;}
+  header .year-row label{font-size:12px;color:var(--muted);min-width:32px;}
+  header .year-row input[type=range]{flex:1;accent-color:var(--accent);min-width:200px;}
+  header .year-row .yearval{font-size:13px;font-weight:600;min-width:60px;text-align:right;}
+  header .year-row .yearval.parziale{font-style:italic;}
+  header .year-note{font-size:11px;color:var(--muted);font-style:italic;margin-left:8px;display:none;}
+  header .year-note.visible{display:inline;}
+
+  aside.controls{grid-row:2;padding:16px;border-right:1px solid var(--line);background:var(--panel);overflow-y:auto;}
+  aside.controls .field{margin-bottom:16px;}
+  aside.controls label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;}
+  aside.controls select, aside.controls input[type=range]{width:100%;}
+  aside.controls input[type=range].opacity{accent-color:var(--accent);}
+  select{padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:13px;}
+  optgroup{font-weight:600;color:var(--ink);}
+  .slider-val{font-size:12px;color:var(--accent);float:right;font-weight:600;}
+  .checkbox-row{display:flex;align-items:center;gap:6px;}
+  .checkbox-row input{width:auto;}
+  .checkbox-row label{margin:0;color:var(--ink);font-size:13px;}
+
+  #map{grid-row:2;position:relative;}
+  #legend{position:absolute;bottom:16px;left:16px;background:#fffffff2;padding:8px 10px;border-radius:6px;font-size:11px;box-shadow:0 1px 4px rgba(0,0,0,.15);z-index:500;max-width:260px;}
+  #legend .swatches{display:flex;}
+  #legend .swatch{width:26px;height:12px;}
+  #legend .label{margin-top:8px;font-weight:600;}
+  #legend .macro-list{margin-top:8px;padding-top:6px;border-top:1px solid var(--line);}
+  #legend .macro-list .macro-row{display:flex;align-items:center;gap:6px;margin-top:2px;font-size:10px;}
+  #legend .macro-list .macro-sw{width:12px;height:12px;flex:0 0 12px;border:1px solid rgba(0,0,0,.15);}
+
+  aside.info{grid-row:2;padding:16px;border-left:1px solid var(--line);overflow-y:auto;font-size:13px;}
+  aside.info dt{color:var(--muted);font-size:11px;margin-top:10px;}
+  aside.info dd{margin:0;font-weight:600;}
+  aside.info table{width:100%;border-collapse:collapse;margin-top:12px;font-size:11px;}
+  aside.info th,aside.info td{padding:3px 4px;border-bottom:1px solid var(--line);text-align:right;}
+  aside.info th:first-child,aside.info td:first-child{text-align:left;}
+  aside.info tr.parziale td, aside.info tr.parziale th{font-style:italic;color:var(--muted);}
+  #loading{position:absolute;top:16px;right:16px;background:#fff;padding:6px 12px;border-radius:6px;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.15);z-index:600;display:none;}
+
+  .info-box {
+  margin-top: 20px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.info-box strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>Mappa interattiva della temperatura superficiale estiva</h1>
+    <div class="year-row">
+      <label>Anno</label>
+      <input type="range" id="yearSlider" min="2019" max="2026" step="1" value="2025">
+      <span class="yearval" id="yearVal">2025</span>
+      <span class="year-note" id="yearNote">dato parziale, aggiornato al <span id="yearNoteDate">—</span></span>
+    </div>
+  </header>
+
+  <aside class="controls">
+    <div class="field">
+      <label>Comune</label>
+      <select id="comuneSelect"></select>
+    </div>
+    <div class="field">
+      <label>Statistica</label>
+      <select id="statSelect">
+        <option value="med" selected>Media</option>
+        <option value="mdn">Mediana</option>
+        <option value="min">Minimo</option>
+        <option value="max">Massimo</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Classificazione</label>
+      <select id="classSelect">
+        <option value="quantile">Quantili</option>
+        <option value="jenks">Intervalli naturali (Jenks)</option>
+        <option value="equal">Intervalli uguali</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Numero classi <span class="slider-val" id="numClassesVal">5</span></label>
+      <input type="range" id="numClasses" min="3" max="9" step="1" value="5">
+    </div>
+    <div class="field">
+      <label>Palette LST</label>
+      <select id="paletteSelect">
+        <option value="giallorosso">Giallo-Rosso</option>
+        <option value="blurosso">Blu-Rosso</option>
+        <option value="viridis">Viridis</option>
+        <option value="grigi">Grigi</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Opacita' LST <span class="slider-val" id="opacityVal">75%</span></label>
+      <input type="range" id="opacitySlider" class="opacity" min="0" max="100" step="5" value="75">
+    </div>
+
+    <div class="field">
+      <div class="checkbox-row">
+        <input type="checkbox" id="tipoSToggle" checked>
+        <label for="tipoSToggle">Layer tipologia sezione</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Mappa di base</label>
+      <select id="basemapSelect">
+        <option value="osm">OpenStreetMap</option>
+        <option value="positron">Carto Positron</option>
+        <option value="satellite">Satellite (Esri)</option>
+        <option value="none">Nessuna</option>
+      </select>
+    </div>
+
+	<div class="info-box">
+	  <strong>Dati e metodologia</strong>
+	  Land Surface Temperature derivata dalle immagini estive Landsat 8 e 9 (<a href="https://www.usgs.gov/landsat-missions/landsat-science-products" target="_blank" rel="noopener">Collection 2, Tier 1, Level 2</a>) con Google Earth Engine: mediana pixel-per-pixel su tutte le acquisizioni estive di ciascun anno, poi aggregazione per sezione di censimento (min, media, mediana, max). L'anno 2026 e' parziale (stagione estiva in corso). Le sezioni sono raggruppate per copertura in 8 macro-classi orientate a evidenziare i driver termici del suolo (impervious vs verde vs acqua). <a href="https://www.istat.it/notizia/basi-territoriali-e-variabili-censuarie/" target="_blank" rel="noopener">Geometrie</a> e attributi (POP21, COD_TIPO_S) da Istat, Basi territoriali 2021.
+	</div>
+  </aside>
+
+  <div id="map">
+    <div id="loading">Caricamento…</div>
+    <div id="legend"></div>
+  </div>
+
+  <aside class="info">
+    <dl id="infoPanel"></dl>
+    <table id="dataTable"><thead></thead><tbody></tbody></table>
+  </aside>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
