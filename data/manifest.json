@@ -1,0 +1,1976 @@
+{
+  "comuni": [
+    {
+      "code": "006003",
+      "name": "Alessandria",
+      "regione": "Piemonte",
+      "file": "data/STstats_Alessandria.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "005005",
+      "name": "Asti",
+      "regione": "Piemonte",
+      "file": "data/STstats_Asti.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "096004",
+      "name": "Biella",
+      "regione": "Piemonte",
+      "file": "data/STstats_Biella.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "004078",
+      "name": "Cuneo",
+      "regione": "Piemonte",
+      "file": "data/STstats_Cuneo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "003106",
+      "name": "Novara",
+      "regione": "Piemonte",
+      "file": "data/STstats_Novara.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "001272",
+      "name": "Torino",
+      "regione": "Piemonte",
+      "file": "data/STstats_Torino.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "103072",
+      "name": "Verbania",
+      "regione": "Piemonte",
+      "file": "data/STstats_Verbania.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "002158",
+      "name": "Vercelli",
+      "regione": "Piemonte",
+      "file": "data/STstats_Vercelli.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "007003",
+      "name": "Aosta",
+      "regione": "Valle d'Aosta",
+      "file": "data/STstats_Aosta.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "016024",
+      "name": "Bergamo",
+      "regione": "Lombardia",
+      "file": "data/STstats_Bergamo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "017029",
+      "name": "Brescia",
+      "regione": "Lombardia",
+      "file": "data/STstats_Brescia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "013075",
+      "name": "Como",
+      "regione": "Lombardia",
+      "file": "data/STstats_Como.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "019036",
+      "name": "Cremona",
+      "regione": "Lombardia",
+      "file": "data/STstats_Cremona.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "097042",
+      "name": "Lecco",
+      "regione": "Lombardia",
+      "file": "data/STstats_Lecco.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "098031",
+      "name": "Lodi",
+      "regione": "Lombardia",
+      "file": "data/STstats_Lodi.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "020030",
+      "name": "Mantova",
+      "regione": "Lombardia",
+      "file": "data/STstats_Mantova.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "015146",
+      "name": "Milano",
+      "regione": "Lombardia",
+      "file": "data/STstats_Milano.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "108033",
+      "name": "Monza",
+      "regione": "Lombardia",
+      "file": "data/STstats_Monza.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "018110",
+      "name": "Pavia",
+      "regione": "Lombardia",
+      "file": "data/STstats_Pavia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "014061",
+      "name": "Sondrio",
+      "regione": "Lombardia",
+      "file": "data/STstats_Sondrio.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "012133",
+      "name": "Varese",
+      "regione": "Lombardia",
+      "file": "data/STstats_Varese.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "021008",
+      "name": "Bolzano/Bozen",
+      "regione": "Trentino-Alto Adige",
+      "file": "data/STstats_Bolzano-Bozen.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "022205",
+      "name": "Trento",
+      "regione": "Trentino-Alto Adige",
+      "file": "data/STstats_Trento.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "025006",
+      "name": "Belluno",
+      "regione": "Veneto",
+      "file": "data/STstats_Belluno.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "028060",
+      "name": "Padova",
+      "regione": "Veneto",
+      "file": "data/STstats_Padova.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "029041",
+      "name": "Rovigo",
+      "regione": "Veneto",
+      "file": "data/STstats_Rovigo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "026086",
+      "name": "Treviso",
+      "regione": "Veneto",
+      "file": "data/STstats_Treviso.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "027042",
+      "name": "Venezia",
+      "regione": "Veneto",
+      "file": "data/STstats_Venezia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "023091",
+      "name": "Verona",
+      "regione": "Veneto",
+      "file": "data/STstats_Verona.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "024116",
+      "name": "Vicenza",
+      "regione": "Veneto",
+      "file": "data/STstats_Vicenza.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "031007",
+      "name": "Gorizia",
+      "regione": "Friuli-Venezia Giulia",
+      "file": "data/STstats_Gorizia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "093033",
+      "name": "Pordenone",
+      "regione": "Friuli-Venezia Giulia",
+      "file": "data/STstats_Pordenone.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "032006",
+      "name": "Trieste",
+      "regione": "Friuli-Venezia Giulia",
+      "file": "data/STstats_Trieste.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "030129",
+      "name": "Udine",
+      "regione": "Friuli-Venezia Giulia",
+      "file": "data/STstats_Udine.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "010025",
+      "name": "Genova",
+      "regione": "Liguria",
+      "file": "data/STstats_Genova.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "008031",
+      "name": "Imperia",
+      "regione": "Liguria",
+      "file": "data/STstats_Imperia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "011015",
+      "name": "La Spezia",
+      "regione": "Liguria",
+      "file": "data/STstats_La_Spezia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "009056",
+      "name": "Savona",
+      "regione": "Liguria",
+      "file": "data/STstats_Savona.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "037006",
+      "name": "Bologna",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Bologna.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "038008",
+      "name": "Ferrara",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Ferrara.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "040012",
+      "name": "Forlì",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Forlì.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "036023",
+      "name": "Modena",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Modena.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "034027",
+      "name": "Parma",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Parma.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "033032",
+      "name": "Piacenza",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Piacenza.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "039014",
+      "name": "Ravenna",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Ravenna.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "035033",
+      "name": "Reggio nell'Emilia",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Reggio_nellEmilia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "099014",
+      "name": "Rimini",
+      "regione": "Emilia-Romagna",
+      "file": "data/STstats_Rimini.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "051002",
+      "name": "Arezzo",
+      "regione": "Toscana",
+      "file": "data/STstats_Arezzo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "048017",
+      "name": "Firenze",
+      "regione": "Toscana",
+      "file": "data/STstats_Firenze.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "053011",
+      "name": "Grosseto",
+      "regione": "Toscana",
+      "file": "data/STstats_Grosseto.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "049009",
+      "name": "Livorno",
+      "regione": "Toscana",
+      "file": "data/STstats_Livorno.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "046017",
+      "name": "Lucca",
+      "regione": "Toscana",
+      "file": "data/STstats_Lucca.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "045010",
+      "name": "Massa",
+      "regione": "Toscana",
+      "file": "data/STstats_Massa.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "050026",
+      "name": "Pisa",
+      "regione": "Toscana",
+      "file": "data/STstats_Pisa.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "047014",
+      "name": "Pistoia",
+      "regione": "Toscana",
+      "file": "data/STstats_Pistoia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "100005",
+      "name": "Prato",
+      "regione": "Toscana",
+      "file": "data/STstats_Prato.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "052032",
+      "name": "Siena",
+      "regione": "Toscana",
+      "file": "data/STstats_Siena.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "054039",
+      "name": "Perugia",
+      "regione": "Umbria",
+      "file": "data/STstats_Perugia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "055032",
+      "name": "Terni",
+      "regione": "Umbria",
+      "file": "data/STstats_Terni.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "042002",
+      "name": "Ancona",
+      "regione": "Marche",
+      "file": "data/STstats_Ancona.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "044007",
+      "name": "Ascoli Piceno",
+      "regione": "Marche",
+      "file": "data/STstats_Ascoli_Piceno.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "109006",
+      "name": "Fermo",
+      "regione": "Marche",
+      "file": "data/STstats_Fermo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "043023",
+      "name": "Macerata",
+      "regione": "Marche",
+      "file": "data/STstats_Macerata.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "041044",
+      "name": "Pesaro",
+      "regione": "Marche",
+      "file": "data/STstats_Pesaro.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "060038",
+      "name": "Frosinone",
+      "regione": "Lazio",
+      "file": "data/STstats_Frosinone.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "059011",
+      "name": "Latina",
+      "regione": "Lazio",
+      "file": "data/STstats_Latina.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "057059",
+      "name": "Rieti",
+      "regione": "Lazio",
+      "file": "data/STstats_Rieti.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "058091",
+      "name": "Roma",
+      "regione": "Lazio",
+      "file": "data/STstats_Roma.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "056059",
+      "name": "Viterbo",
+      "regione": "Lazio",
+      "file": "data/STstats_Viterbo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "069022",
+      "name": "Chieti",
+      "regione": "Abruzzo",
+      "file": "data/STstats_Chieti.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "066049",
+      "name": "L'Aquila",
+      "regione": "Abruzzo",
+      "file": "data/STstats_LAquila.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "068028",
+      "name": "Pescara",
+      "regione": "Abruzzo",
+      "file": "data/STstats_Pescara.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "067041",
+      "name": "Teramo",
+      "regione": "Abruzzo",
+      "file": "data/STstats_Teramo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "070006",
+      "name": "Campobasso",
+      "regione": "Molise",
+      "file": "data/STstats_Campobasso.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "094023",
+      "name": "Isernia",
+      "regione": "Molise",
+      "file": "data/STstats_Isernia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "064008",
+      "name": "Avellino",
+      "regione": "Campania",
+      "file": "data/STstats_Avellino.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "062008",
+      "name": "Benevento",
+      "regione": "Campania",
+      "file": "data/STstats_Benevento.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "061022",
+      "name": "Caserta",
+      "regione": "Campania",
+      "file": "data/STstats_Caserta.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "063049",
+      "name": "Napoli",
+      "regione": "Campania",
+      "file": "data/STstats_Napoli.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "065116",
+      "name": "Salerno",
+      "regione": "Campania",
+      "file": "data/STstats_Salerno.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "110001",
+      "name": "Andria",
+      "regione": "Puglia",
+      "file": "data/STstats_Andria.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "072006",
+      "name": "Bari",
+      "regione": "Puglia",
+      "file": "data/STstats_Bari.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "110002",
+      "name": "Barletta",
+      "regione": "Puglia",
+      "file": "data/STstats_Barletta.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "074001",
+      "name": "Brindisi",
+      "regione": "Puglia",
+      "file": "data/STstats_Brindisi.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "071024",
+      "name": "Foggia",
+      "regione": "Puglia",
+      "file": "data/STstats_Foggia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "075035",
+      "name": "Lecce",
+      "regione": "Puglia",
+      "file": "data/STstats_Lecce.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "073027",
+      "name": "Taranto",
+      "regione": "Puglia",
+      "file": "data/STstats_Taranto.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "110009",
+      "name": "Trani",
+      "regione": "Puglia",
+      "file": "data/STstats_Trani.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "077014",
+      "name": "Matera",
+      "regione": "Basilicata",
+      "file": "data/STstats_Matera.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "076063",
+      "name": "Potenza",
+      "regione": "Basilicata",
+      "file": "data/STstats_Potenza.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "079023",
+      "name": "Catanzaro",
+      "regione": "Calabria",
+      "file": "data/STstats_Catanzaro.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "078045",
+      "name": "Cosenza",
+      "regione": "Calabria",
+      "file": "data/STstats_Cosenza.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "101010",
+      "name": "Crotone",
+      "regione": "Calabria",
+      "file": "data/STstats_Crotone.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "080063",
+      "name": "Reggio di Calabria",
+      "regione": "Calabria",
+      "file": "data/STstats_Reggio_di_Calabria.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "102047",
+      "name": "Vibo Valentia",
+      "regione": "Calabria",
+      "file": "data/STstats_Vibo_Valentia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "084001",
+      "name": "Agrigento",
+      "regione": "Sicilia",
+      "file": "data/STstats_Agrigento.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "085004",
+      "name": "Caltanissetta",
+      "regione": "Sicilia",
+      "file": "data/STstats_Caltanissetta.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "087015",
+      "name": "Catania",
+      "regione": "Sicilia",
+      "file": "data/STstats_Catania.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "086009",
+      "name": "Enna",
+      "regione": "Sicilia",
+      "file": "data/STstats_Enna.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "083048",
+      "name": "Messina",
+      "regione": "Sicilia",
+      "file": "data/STstats_Messina.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "082053",
+      "name": "Palermo",
+      "regione": "Sicilia",
+      "file": "data/STstats_Palermo.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "088009",
+      "name": "Ragusa",
+      "regione": "Sicilia",
+      "file": "data/STstats_Ragusa.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "089017",
+      "name": "Siracusa",
+      "regione": "Sicilia",
+      "file": "data/STstats_Siracusa.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "081021",
+      "name": "Trapani",
+      "regione": "Sicilia",
+      "file": "data/STstats_Trapani.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "118006",
+      "name": "Cagliari",
+      "regione": "Sardegna",
+      "file": "data/STstats_Cagliari.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "119003",
+      "name": "Carbonia",
+      "regione": "Sardegna",
+      "file": "data/STstats_Carbonia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "119009",
+      "name": "Iglesias",
+      "regione": "Sardegna",
+      "file": "data/STstats_Iglesias.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "116010",
+      "name": "Lanusei",
+      "regione": "Sardegna",
+      "file": "data/STstats_Lanusei.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "114027",
+      "name": "Nuoro",
+      "regione": "Sardegna",
+      "file": "data/STstats_Nuoro.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "113017",
+      "name": "Olbia",
+      "regione": "Sardegna",
+      "file": "data/STstats_Olbia.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "115045",
+      "name": "Oristano",
+      "regione": "Sardegna",
+      "file": "data/STstats_Oristano.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "117015",
+      "name": "Sanluri",
+      "regione": "Sardegna",
+      "file": "data/STstats_Sanluri.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "112050",
+      "name": "Sassari",
+      "regione": "Sardegna",
+      "file": "data/STstats_Sassari.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "113025",
+      "name": "Tempio Pausania",
+      "regione": "Sardegna",
+      "file": "data/STstats_Tempio_Pausania.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "116017",
+      "name": "Tortolì",
+      "regione": "Sardegna",
+      "file": "data/STstats_Tortolì.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    },
+    {
+      "code": "117025",
+      "name": "Villacidro",
+      "regione": "Sardegna",
+      "file": "data/STstats_Villacidro.topojson",
+      "format": "topojson",
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    }
+  ]
+}
