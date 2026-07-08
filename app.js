@@ -3,10 +3,9 @@
 //   {stat}_YYYY (stat in {min, med, mdn, max}) e COD_TIPO_S per ogni feature.
 // - Layer stack: basemap OSM/Positron/Satellite -> tematizzazione COD_TIPO_S
 //   (macro-aree, opaca) -> tematizzazione LST (semi-trasparente).
-//
-// Ottimizzazione: quando cambia solo lo stile (statistica/anno/palette/opacita'/classi)
-// aggiorno con setStyle() senza ricostruire il layer. Ricostruzione totale solo
-// al cambio comune o toggle tipologia.
+// - Selezione persistente: click su sezione la evidenzia col bordo nero;
+//   click su altra sezione sposta la selezione; click sulla stessa toglie
+//   la selezione; click sul basemap deseleziona.
 
 const PALETTES = {
   giallorosso: ['#ffffcc', '#fee187', '#fdae61', '#f46d43', '#a50026'],
@@ -73,6 +72,9 @@ const COD_TIPO_S_LABEL = {
   99: 'Altro', 100: 'Senza fissa dimora',
 };
 
+// Stile di selezione: bordo nero spesso, mantiene il fill LST sottostante
+const SELECTED_STYLE = { color: '#000', weight: 2.2, opacity: 1 };
+
 function macroForCodice(cod) {
   if (cod == null || cod === '') return 8;
   const n = Number(cod);
@@ -94,13 +96,15 @@ const state = {
   tipoSLayer: null,
   map: null,
   tileLayer: null,
-  currentComuneCode: null,   // per capire quando cambia il comune
-  currentTipoSVisible: null, // per capire quando cambia il toggle
+  currentComuneCode: null,
+  currentTipoSVisible: null,
   currentEntry: null,
   currentGeojson: null,
   currentBreaks: null,
   currentColors: null,
   currentField: null,
+  selectedLayer: null,   // riferimento al leaflet layer selezionato
+  selectedSez21: null,   // id della sezione selezionata (per persistenza tra rebuild)
 };
 const el = (id) => document.getElementById(id);
 const loading = (on) => { const l = el('loading'); if (l) l.style.display = on ? 'block' : 'none'; };
@@ -286,6 +290,13 @@ function renderInfoPanel() {
     <dt>Media (tra sezioni)</dt><dd>${mean.toFixed(2)} &deg;C</dd>
     <dt>Mediana (tra sezioni)</dt><dd>${median.toFixed(2)} &deg;C</dd>`;
 
+  // Se non c'e' selezione attiva mostra placeholder; altrimenti lascia i dettagli
+  if (state.selectedLayer == null) {
+    resetDataTable();
+  }
+}
+
+function resetDataTable() {
   const table = el('dataTable');
   table.querySelector('thead').innerHTML = '';
   table.querySelector('tbody').innerHTML =
@@ -331,20 +342,54 @@ function renderSectionInfo(feature) {
   table.querySelector('tbody').innerHTML = serieRows;
 }
 
+// ---------- selezione sezione ----------
+function clearSelection() {
+  if (state.selectedLayer) {
+    // Ripristina lo stile LST normale sul layer precedentemente selezionato
+    try {
+      state.selectedLayer.setStyle(styleFeatureLST(state.selectedLayer.feature));
+    } catch (e) { /* layer potrebbe essere gia' distrutto */ }
+  }
+  state.selectedLayer = null;
+  state.selectedSez21 = null;
+  resetDataTable();
+}
+
+function selectSection(layer, feature) {
+  const sez = feature.properties.SEZ21 ?? feature.properties.SEZ21_ID;
+  // Toggle: se clicchi la stessa sezione, deseleziona
+  if (state.selectedSez21 != null && state.selectedSez21 === sez) {
+    clearSelection();
+    return;
+  }
+  // Se c'era una selezione diversa, ripristina il suo stile
+  if (state.selectedLayer && state.selectedLayer !== layer) {
+    try {
+      state.selectedLayer.setStyle(styleFeatureLST(state.selectedLayer.feature));
+    } catch (e) { /* ignore */ }
+  }
+  // Applica lo stile di selezione (bordo nero, il fill LST resta invariato dal precedente setStyle)
+  layer.setStyle(SELECTED_STYLE);
+  if (layer.bringToFront) layer.bringToFront();
+  state.selectedLayer = layer;
+  state.selectedSez21 = sez;
+  renderSectionInfo(feature);
+}
+
 function setBasemap(key) {
   if (state.tileLayer) { state.map.removeLayer(state.tileLayer); state.tileLayer = null; }
   const b = BASEMAPS[key];
   if (!b) return;
   state.tileLayer = L.tileLayer(b.url, { attribution: b.attr, subdomains: 'abc', maxZoom: 19 }).addTo(state.map);
-  // Assicura l'ordine di sovrapposizione dopo il cambio basemap
   ensureLayerOrder();
 }
 
 function ensureLayerOrder() {
-  // basemap in fondo, poi tipologia sezione, poi LST in cima
   if (state.tileLayer && state.tileLayer.bringToBack) state.tileLayer.bringToBack();
   if (state.tipoSLayer && state.tipoSLayer.bringToFront) state.tipoSLayer.bringToFront();
   if (state.lstLayer && state.lstLayer.bringToFront) state.lstLayer.bringToFront();
+  // La sezione selezionata resta in cima (bringToFront gia' fatto in selectSection)
+  if (state.selectedLayer && state.selectedLayer.bringToFront) state.selectedLayer.bringToFront();
 }
 
 function updateYearDisplay() {
@@ -380,7 +425,7 @@ function computeCurrentStyleParams() {
 }
 
 async function refresh(reason) {
-  // reason: 'comune' (ricostruzione totale), 'toggle' (idem), 'style' (solo setStyle)
+  // reason: 'rebuild' -> ricostruzione completa; altrimenti fast setStyle
   const entry = state.manifest.comuni.find(c => c.code === el('comuneSelect').value);
   if (!entry) return;
 
@@ -388,7 +433,6 @@ async function refresh(reason) {
   const tipoSVisible = el('tipoSToggle').checked;
   const tipoSChanged = state.currentTipoSVisible !== tipoSVisible;
 
-  // Se cambia il comune, ricarico i dati
   if (comuneChanged) {
     state.currentEntry = entry;
     state.currentGeojson = await loadComune(entry);
@@ -402,7 +446,9 @@ async function refresh(reason) {
     || reason === 'rebuild';
 
   if (needRebuild) {
-    // --- Ricostruzione totale (comune nuovo, toggle cambiato o primo render) ---
+    // La selezione punta a un layer che sta per essere distrutto
+    clearSelection();
+
     if (state.lstLayer) { state.map.removeLayer(state.lstLayer); state.lstLayer = null; }
     if (state.tipoSLayer) { state.map.removeLayer(state.tipoSLayer); state.tipoSLayer = null; }
 
@@ -427,7 +473,10 @@ async function refresh(reason) {
             ` \u00b7 ${COD_TIPO_S_LABEL[Number(cod)] ?? 'tipo ' + cod}`;
           layer.setTooltipContent(`Sezione ${f.properties.SEZ21_ID ?? ''}${codShort}<br>${vLabel}`);
         });
-        layer.on('click', () => renderSectionInfo(f));
+        layer.on('click', (ev) => {
+          L.DomEvent.stopPropagation(ev);   // impedisce che il click bolla al map -> clearSelection
+          selectSection(layer, f);
+        });
       },
     }).addTo(state.map);
 
@@ -436,7 +485,11 @@ async function refresh(reason) {
   } else {
     // --- Fast path: solo restyle in-place ---
     if (state.lstLayer) state.lstLayer.setStyle(styleFeatureLST);
-    // il layer tipologia non cambia stile con anno/statistica/palette
+    // Riapplica lo stile di selezione (che setStyle globale ha sovrascritto)
+    if (state.selectedLayer) {
+      state.selectedLayer.setStyle(SELECTED_STYLE);
+      if (state.selectedLayer.bringToFront) state.selectedLayer.bringToFront();
+    }
     ensureLayerOrder();
   }
 
@@ -515,5 +568,8 @@ async function init() {
   el('opacitySlider').addEventListener('input', () => { updateOpacityLabel(); refresh('style'); });
   el('tipoSToggle').addEventListener('change', () => refresh('rebuild'));
   el('basemapSelect').addEventListener('change', () => setBasemap(el('basemapSelect').value));
+
+  // Click sul basemap (fuori dalle sezioni) -> deseleziona
+  state.map.on('click', () => clearSelection());
 }
 init();
