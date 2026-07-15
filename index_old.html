@@ -81,52 +81,6 @@
     margin-bottom: 5px;
     font-size: 12px;
   }
-
-  /* ---------- Layout responsive (mobile/tablet) ---------- */
-  @media (max-width: 820px) {
-    /* Da griglia 3 colonne a impilamento verticale, pagina scrollabile */
-    #app{
-      display:flex;
-      flex-direction:column;
-      height:auto;
-      min-height:100vh;
-    }
-    header{padding:12px 16px;}
-    header h1{font-size:16px;}
-
-    /* Ordine su mobile: intestazione, mappa, controlli, dettagli, footer */
-    header{order:0;}
-    #map{order:1;}
-    aside.controls{order:2;}
-    aside.info{order:3;}
-    footer{order:4;}
-
-    /* La mappa ottiene un'altezza propria e non viene piu' sovrapposta */
-    #map{
-      height:60vh;
-      min-height:320px;
-      width:100%;
-    }
-
-    /* I pannelli laterali diventano a piena larghezza, sotto la mappa */
-    aside.controls,
-    aside.info{
-      width:100%;
-      max-width:none;
-      border-left:none;
-      border-right:none;
-      border-top:1px solid var(--line);
-      overflow:visible;
-    }
-
-    /* La legenda resta dentro la mappa ma piu' compatta */
-    #legend{max-width:70%;font-size:10px;}
-  }
-
-  @media (max-width: 480px){
-    #map{height:55vh;min-height:280px;}
-    #legend{max-width:60%;}
-  }
 </style>
 </head>
 <body>

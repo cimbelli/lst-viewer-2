@@ -565,7 +565,7 @@ async function onComuneChange() {
   const entry = state.manifest.comuni.find(c => c.code === el('comuneSelect').value);
   populateYearSlider(entry);
   await refresh('rebuild');
-  try { state.map.invalidateSize(); state.map.fitBounds(state.lstLayer.getBounds(), { padding: [20, 20] }); } catch (e) {}
+  try { state.map.fitBounds(state.lstLayer.getBounds(), { padding: [20, 20] }); } catch (e) {}
 }
 
 async function init() {
@@ -595,12 +595,5 @@ async function init() {
   el('basemapSelect').addEventListener('change', () => setBasemap(el('basemapSelect').value));
 
   state.map.on('click', () => clearSelection());
-
-  // Fix dimensione mappa: su mobile/rotazione il contenitore cambia taglia e
-  // Leaflet deve ricalcolare, altrimenti i tile restano grigi/non si vedono.
-  const fixMapSize = () => { if (state.map) state.map.invalidateSize(); };
-  window.addEventListener('resize', fixMapSize);
-  window.addEventListener('orientationchange', () => setTimeout(fixMapSize, 250));
-  setTimeout(fixMapSize, 300);
 }
 init();
