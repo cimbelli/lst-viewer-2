@@ -2,7 +2,7 @@
 // - manifest.json elenca i comuni (con `regione`); ogni TopoJSON ha i valori
 //   {stat}_YYYY (stat in {min, med, mdn, max}), COD_TIPO_S e SHAPE_AREA per ogni feature.
 // - Layer stack: basemap -> tematizzazione COD_TIPO_S (macro v3) -> LST semi-trasparente.
-// - Selezione persistente col bordo nero; pulsanti download PDF/CSV per comune.
+// - Selezione persistente col bordo nero; download CSV sezioni (temperature) generato lato client.
 
 const PALETTES = {
   giallorosso: ['#ffffcc', '#fee187', '#fdae61', '#f46d43', '#a50026'],
@@ -397,20 +397,77 @@ function selectSection(layer, feature) {
   renderSectionInfo(feature);
 }
 
-// ---------- link download ----------
+// ---------- download CSV (generato lato client) ----------
+// Il report PDF e' stato rimosso. Il CSV delle sezioni con le temperature viene
+// costruito al volo dai dati gia' caricati (state.currentGeojson), quindi non serve
+// piu' la cartella reports/ ne' file pre-generati: funziona per qualsiasi comune.
+
+function csvEscape(v) {
+  if (v == null) return '';
+  const s = String(v);
+  return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+
+// Costruisce il testo CSV di tutte le sezioni del comune, con le temperature LST
+// (min, media, mediana, max) per ogni anno disponibile.
+function buildSezioniCsv(entry, geojson) {
+  const stats = ['min', 'med', 'mdn', 'max'];       // ordine colonne temperature
+  const years = entry.years || [];
+  const header = [
+    'SEZ21_ID', 'PRO_COM', 'COD_TIPO_S', 'TIPO_S_DESC',
+    'MACRO_ID', 'MACRO_CLASSE', 'SHAPE_AREA_M2', 'POP21',
+  ];
+  for (const y of years) {
+    for (const s of stats) header.push(`LST_${s}_${y}`);
+  }
+
+  const lines = [header.join(',')];
+  for (const f of geojson.features) {
+    const p = f.properties;
+    const cod = p.COD_TIPO_S;
+    const macroId = macroForCodice(cod);
+    const row = [
+      p.SEZ21_ID ?? p.SEZ21 ?? '',
+      p.PRO_COM ?? entry.code ?? '',
+      cod ?? '',
+      cod == null || cod === '' ? '' : (COD_TIPO_S_LABEL[Number(cod)] ?? ''),
+      macroId,
+      nomeMacro(macroId),
+      p.SHAPE_AREA ?? '',
+      p.POP21 ?? '',
+    ];
+    for (const y of years) {
+      for (const s of stats) row.push(p[`${s}_${y}`] ?? '');
+    }
+    lines.push(row.map(csvEscape).join(','));
+  }
+  return lines.join('\r\n');
+}
+
 function updateDownloadLinks(entry) {
   const nameSlug = sanitizeName(entry.name);
-  const pdf = el('dlPdf');
   const csv = el('dlCsv');
+  const geojson = state.currentGeojson;
 
-  // I file sono attesi in reports/ nel repo. Se un giorno non li produci, i link
-  // restano puntati -> 404. Non facciamo probe HEAD per non generare rumore in rete.
-  pdf.setAttribute('href', `reports/report_${nameSlug}.pdf`);
-  csv.setAttribute('href', `reports/sezioni_${nameSlug}.csv`);
-  pdf.removeAttribute('aria-disabled');
-  csv.removeAttribute('aria-disabled');
-  pdf.setAttribute('download', `report_${nameSlug}.pdf`);
+  // Libera l'eventuale blob del comune precedente per non accumulare memoria.
+  if (csv._blobUrl) { URL.revokeObjectURL(csv._blobUrl); csv._blobUrl = null; }
+
+  if (!geojson || !geojson.features || !geojson.features.length) {
+    csv.setAttribute('aria-disabled', 'true');
+    csv.removeAttribute('href');
+    return;
+  }
+
+  const text = buildSezioniCsv(entry, geojson);
+  // BOM UTF-8 per far leggere correttamente gli accenti a Excel.
+  const blob = new Blob(['﻿' + text], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  csv._blobUrl = url;
+
+  csv.setAttribute('href', url);
   csv.setAttribute('download', `sezioni_${nameSlug}.csv`);
+  csv.removeAttribute('aria-disabled');
+  csv.removeAttribute('target');   // il download deve avvenire nella stessa scheda
 }
 
 function setBasemap(key) {
